@@ -1,0 +1,36 @@
+ Questions and answers stored in a list of dictionaries
+quiz = [
+    {"question": "What is the capital of France?", "options": ["a) Paris", "b) London", "c) Berlin", "d) Madrid"], "answer": "a"},
+    {"question": "Which planet is known as the Red Planet?", "options": ["a) Earth", "b) Mars", "c) Jupiter", "d) Venus"], "answer": "b"},
+    {"question": "What is the largest ocean on Earth?", "options": ["a) Atlantic", "b) Indian", "c) Arctic", "d) Pacific"], "answer": "d"},
+    {"question": "What is the chemical symbol for water?", "options": ["a) H2O", "b) CO2", "c) O2", "d) H2"], "answer": "a"},
+    {"question": "Who wrote 'Romeo and Juliet'?", "options": ["a) William Shakespeare", "b) Charles Dickens", "c) Mark Twain", "d) Jane Austen"], "answer": "a"}
+]
+
+def run_quiz():
+    score = 0
+
+    for i, item in enumerate(quiz):
+        print(f"Question {i+1}: {item['question']}")
+        for option in item['options']:
+            print(option)
+        
+        answer = input("Enter your answer (a, b, c, or d): ").strip().lower()
+
+        if answer == item['answer']:
+            print("Correct!\n")
+            score += 1
+        else:
+            print(f"Wrong! The correct answer was {item['answer']}.\n")
+    
+    print(f"Your final score is {score}/{len(quiz)}")
+    if score == len(quiz):
+        print("Excellent! You got all the answers right!")
+    elif score >= len(quiz) // 2:
+        print("Good job! You got more than half right.")
+    else:
+        print("Better luck next time!")
+
+# Run the quiz
+if _name_ == "_main_":
+    run_quiz()
